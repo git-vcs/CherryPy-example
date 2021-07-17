@@ -1,12 +1,16 @@
 from src.example.ExampleRouter import exampleRouter
 from src.calculator.calculatorRouter import calculatorRouter
 import cherrypy
+import os
+port = os.getenv('PORT', '8080')
+print("PORT", port)
 conf = {
         '/': {
             'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
             'tools.sessions.on': True,
             'tools.response_headers.on': True,
             'tools.response_headers.headers': [('Content-Type', 'text/plain')],
+            'server.socket_port': port
         }
     }
 
