@@ -1,1 +1,1 @@
-web: python server.py
+web: bundle exec python server.py
