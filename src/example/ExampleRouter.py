@@ -4,14 +4,16 @@ from src.example.Example import Example
 @cherrypy.tools.json_in(debug=False)
 @cherrypy.tools.json_out(debug=False)
 class exampleRouter():
-    baseAPI=""
-    endPoint=""
-    conf=""
-    def __init__(self,baseAPI,endPoint,conf):
+
+
+    baseAPI = ""
+    endPoint = ""
+    conf = ""
+    def __init__(self, baseAPI, endPoint, conf):
         self.baseAPI = baseAPI
         self.endPoint = endPoint
         self.conf = conf
-        cherrypy.tree.mount(self,baseAPI+endPoint,conf)
+        cherrypy.tree.mount(self, baseAPI+endPoint, conf)
         cherrypy.engine.start()
 
     def GET(self):
@@ -19,7 +21,7 @@ class exampleRouter():
             print("router: get")
             return   {"message": Example.getExample()}
         except (Exception) as error:
-            print("Error:",error)
+            print("Error:", error)
             return "errror"
             
         
@@ -31,7 +33,4 @@ class exampleRouter():
             return Example.postExample(cherrypy.request.json['message'])
         except:
             return Example.postExample()
-
-            
-
-
+  

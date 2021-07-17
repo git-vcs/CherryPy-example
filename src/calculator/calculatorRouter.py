@@ -4,6 +4,8 @@ from src.calculator.calcualtor import Calculator
 @cherrypy.tools.json_in(debug=False)
 @cherrypy.tools.json_out(debug=False)
 class calculatorRouter():
+
+
     calcualtor = Calculator()
     baseAPI=""
     endPoint=""
@@ -12,7 +14,7 @@ class calculatorRouter():
         self.baseAPI = baseAPI
         self.endPoint = endPoint
         self.conf = conf
-        cherrypy.tree.mount(self,baseAPI+endPoint,conf)
+        cherrypy.tree.mount(self, baseAPI+endPoint, conf)
         cherrypy.engine.start()
 
     def GET(self):
@@ -20,10 +22,11 @@ class calculatorRouter():
             print("router: get")
             return   {
                 "Hello": "This is a simple calculator backend-game, pleace answer the follow question by posting the answer: and questionNumber:",
-                "question":self.calcualtor.getRandomeQuestion()
+                "question": self.calcualtor.getRandomeQuestion()
             }
+
         except (Exception) as error:
-            print("Error:",error)
+            print("Error:", error)
             return "errror"
             
         
@@ -32,25 +35,18 @@ class calculatorRouter():
         print(cherrypy.request.json)
         if name=="calculate":
             try:
-                return {"answer":self.calcualtor.calculate(
+                return {"answer": self.calcualtor.calculate(
                     cherrypy.request.json['number01'],
                     cherrypy.request.json['operator'],
                     cherrypy.request.json['number02'],)
                     }
             except (Exception) as error:
-                print("error",error)
-                return {"error":"You are probably missing number01, operator or number02 in your json"}           
-
-        print("lyaing the game")
+                print("error", error)
+                return {"error": "You are probably missing number01, operator or number02 in your json"}           
+                                
         try:
-            return self.calcualtor.checkAnswer(cherrypy.request.json.get('questionNumber'),cherrypy.request.json.get('answer'))
+            return self.calcualtor.checkAnswer(cherrypy.request.json.get('questionNumber'), cherrypy.request.json.get('answer'))
         except (Exception) as error:
-            print("error",error)
+            print("error", error)
             return self.calcualtor.checkAnswer()
-
-
             
-
-            
-
-

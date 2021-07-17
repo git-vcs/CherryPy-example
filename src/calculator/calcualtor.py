@@ -1,27 +1,29 @@
 from random import *
 
 class Calculator(object):
+
+
     questionMessage = "What do you get when you take "
-    questionDik={
-        "0":{
-            "number01":"1",
-            "number02":"2",
-            "operator":"+"
+    questionDik = {
+        "0": {
+            "number01": "1",
+            "number02": "2",
+            "operator": "+"
         },
-        "1":{
-            "number01":"2",
-            "number02":"1",
-            "operator":"-"
+        "1": {
+            "number01": "2",
+            "number02": "1",
+            "operator": "-"
         },
-        "2":{
-            "number01":"3",
-            "number02":"5",
-            "operator":"*"
+        "2": {
+            "number01": "3",
+            "number02": "5",
+            "operator": "*"
         },
-        "3":{
-            "number01":"12.0",
-            "number02":"2.0",
-            "operator":"/"
+        "3": {
+            "number01": "12.0",
+            "number02": "2.0",
+            "operator": "/"
         }
     }
 
@@ -33,12 +35,12 @@ class Calculator(object):
         print(oneQuestion)
         outputQuestion = self.questionMessage + oneQuestion.get("number01")+" "+oneQuestion.get("operator")+" "+oneQuestion.get("number02")+"?"
         print(outputQuestion,questionNumber)
-        return{"question":outputQuestion,"questionNumber":questionNumber}
+        return{"question": outputQuestion, "questionNumber": questionNumber}
     
 
 
     def calculate(self, number01, operator, number02):
-        print(number01,operator,number02)
+        print(number01, operator, number02)
         if operator == "+":
             return int(number01) + int(number02)
         elif operator == "-":
@@ -60,8 +62,8 @@ class Calculator(object):
             }
         else:
             question = self.questionDik.get(str(questionNumber))
-            calculatedAnswer = self.calculate(question['number01'],question['operator'],question['number02'])
-            print(calculatedAnswer,answer)
+            calculatedAnswer = self.calculate(question['number01'], question['operator'], question['number02'])
+            print(calculatedAnswer, answer)
             if str(calculatedAnswer) == str(answer):
                 return {
                         "message": "correct"
@@ -70,3 +72,4 @@ class Calculator(object):
                 return {
                         "message": "wrong answer please try again"
                         }
+                        
