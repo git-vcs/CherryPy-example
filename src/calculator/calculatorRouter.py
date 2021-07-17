@@ -49,4 +49,3 @@ class calculatorRouter():
         except (Exception) as error:
             print("error", error)
             return self.calcualtor.checkAnswer()
-            

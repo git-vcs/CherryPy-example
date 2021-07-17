@@ -71,5 +71,4 @@ class Calculator(object):
             else: 
                 return {
                         "message": "wrong answer please try again"
-                        }
-                        
+                        }                       

@@ -37,4 +37,3 @@ if __name__ == '__main__':
     exampleRouter(baseAPI,"/example", conf)
     calculatorRouter(baseAPI,"/calculator", conf)
     cherrypy.engine.block()
-    

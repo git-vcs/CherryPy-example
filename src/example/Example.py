@@ -15,5 +15,4 @@ class Example(object):
             return {
             "statusMessage": "This is a response from the example post-API, ",
             "message": 'You did not specify a “message”: in your json post'
-            }
-            
+            }           

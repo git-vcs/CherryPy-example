@@ -33,4 +33,3 @@ class exampleRouter():
             return Example.postExample(cherrypy.request.json['message'])
         except:
             return Example.postExample()
-  

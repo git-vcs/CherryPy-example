@@ -19,5 +19,4 @@ class helloRouter():
             return   "Hellow World"
         except (Exception) as error:
             print("Error:", error)
-            return "errror"
-            
+            return "errror"    

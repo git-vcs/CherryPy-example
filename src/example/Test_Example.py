@@ -8,4 +8,3 @@ class TestExample(unittest.TestCase):
         respone = str(Example.postExample("unittest")[1])
         print("printing:", respone['message'].split(":")[1])
         self.assertEqual(respone, "unittest")
-        
