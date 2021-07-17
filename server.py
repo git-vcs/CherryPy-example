@@ -2,21 +2,29 @@ from src.example.ExampleRouter import exampleRouter
 from src.calculator.calculatorRouter import calculatorRouter
 import cherrypy
 import os
-port = os.getenv('PORT', 'There is no port variable defined')
-print("Heroku PORT:", port)
+port = int(os.getenv('PORT', '8080'))
+
+for item, value in os.environ.items():
+    print('{}: {}'.format(item, value))
+
 conf = {
         '/': {
             'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
             'tools.sessions.on': True,
             'tools.response_headers.on': True,
-            'tools.response_headers.headers': [('Content-Type', 'text/plain')],
-            'server.socket_port': port
+            'tools.response_headers.headers': [('Content-Type', 'text/plain')]
         }
     }
+    
 
 baseAPI="/api"
+globalConf={
+            'server.socket_port': port,
+            'engine.autoreload.on':False
+            }
 
 if __name__ == '__main__':
+    cherrypy.config.update(globalConf)
     exampleRouter(baseAPI,"/example",conf)
     calculatorRouter(baseAPI,"/calculator",conf)
     cherrypy.engine.block()
