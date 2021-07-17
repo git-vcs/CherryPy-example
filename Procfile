@@ -1,2 +1,1 @@
-worker: python server.py
-web: heroku ps:scale web=1
+worker: python server.py && heroku ps:scale web=1
