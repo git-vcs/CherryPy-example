@@ -2,8 +2,8 @@ from src.example.ExampleRouter import exampleRouter
 from src.calculator.calculatorRouter import calculatorRouter
 import cherrypy
 import os
-port = os.getenv('PORT', '8080')
-print("PORT", port)
+port = os.getenv('PORT', 'There is no port variable defined')
+print("Heroku PORT:", port)
 conf = {
         '/': {
             'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
