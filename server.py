@@ -4,8 +4,13 @@ import cherrypy
 import os
 port = int(os.getenv('PORT', '8080'))
 
-for item, value in os.environ.items():
-    print('{}: {}'.format(item, value))
+## checing is the program in running on heroku
+autoReload = os.getenv('FORWARDED_ALLOW_IPS', 'False')
+
+## for pining all env
+
+#for item, value in os.environ.items():
+#    print('{}: {}'.format(item, value))
 
 conf = {
         '/': {
@@ -20,7 +25,7 @@ conf = {
 baseAPI="/api"
 globalConf={
             'server.socket_port': port,
-            'engine.autoreload.on':False
+            'engine.autoreload.on':autoReload
             }
 
 if __name__ == '__main__':
