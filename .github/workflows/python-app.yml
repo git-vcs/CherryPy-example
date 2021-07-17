@@ -32,3 +32,11 @@ jobs:
     - name: Test with unittest
       run: |
         python -m unittest
+    - name: Deploy
+      env:
+        KEY: ${{secrets.HEROKU_KEY}}
+        APP: ${{secrets.HEROKU_NAME}}
+      if: github.ref == 'refs/heads/master' && job.status == 'succsess'
+      run: |
+        git remote add heroku https://heroku:$KEY@git.heroku.com/$APP.git
+        git push heroku HEAD:master
