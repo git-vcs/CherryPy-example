@@ -1,1 +1,1 @@
-worker: pip install -r requirements.txt && python server.py
+web: python server.py
