@@ -1,8 +1,8 @@
 import cherrypy
 from src.example.Example import Example
 @cherrypy.expose
-@cherrypy.tools.json_in(debug=True)
-@cherrypy.tools.json_out(debug=True)
+@cherrypy.tools.json_in(debug=False)
+@cherrypy.tools.json_out(debug=False)
 class exampleRouter():
     baseAPI=""
     endPoint=""

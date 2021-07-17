@@ -1,5 +1,6 @@
 from src.example.ExampleRouter import exampleRouter
 from src.calculator.calculatorRouter import calculatorRouter
+from src.Hello import helloRouter
 import cherrypy
 import os
 port = int(os.getenv('PORT', '8080'))
@@ -26,11 +27,13 @@ conf = {
 baseAPI="/api"
 globalConf={
             'server.socket_port': port,
+            'server.socket_host': '0.0.0.0',
             'engine.autoreload.on':autoReload
             }
 
 if __name__ == '__main__':
     cherrypy.config.update(globalConf)
+    helloRouter("/","",conf)
     exampleRouter(baseAPI,"/example",conf)
     calculatorRouter(baseAPI,"/calculator",conf)
     cherrypy.engine.block()
