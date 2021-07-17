@@ -3,9 +3,10 @@ from src.calculator.calculatorRouter import calculatorRouter
 import cherrypy
 import os
 port = int(os.getenv('PORT', '8080'))
-
+print("PORT: ",port)
 ## checing is the program in running on heroku
-autoReload = os.getenv('FORWARDED_ALLOW_IPS', 'False')
+autoReload = False if  os.getenv('FORWARDED_ALLOW_IPS') else True
+print("AUTORELOAD: ",autoReload)
 
 ## for pining all env
 
@@ -33,4 +34,3 @@ if __name__ == '__main__':
     exampleRouter(baseAPI,"/example",conf)
     calculatorRouter(baseAPI,"/calculator",conf)
     cherrypy.engine.block()
-    
