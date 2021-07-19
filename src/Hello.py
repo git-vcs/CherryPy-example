@@ -1,8 +1,8 @@
 import cherrypy
+import time
 @cherrypy.expose
 class helloRouter():
-
-
+    start=time.time()
     baseAPI = ""
     endPoint = ""
     conf = ""
@@ -16,7 +16,8 @@ class helloRouter():
     def GET(self):
         try:
             print("router: get")
-            return   "Hellow World"
+            res = "Hello World\nServer uptime: "+str(int(time.time()-self.start))+" s."
+            return   res
         except (Exception) as error:
             print("Error:", error)
             return "errror"    
