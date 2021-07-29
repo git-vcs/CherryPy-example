@@ -1,8 +1,7 @@
 from random import *
 
+
 class Calculator(object):
-
-
     questionMessage = "What do you get when you take "
     questionDik = {
         "0": {
@@ -29,15 +28,14 @@ class Calculator(object):
 
     def getRandomeQuestion(self):
         keys = list(self.questionDik.keys())
-        questionNumber = str(randint(0,len(keys)-1))
+        questionNumber = str(randint(0, len(keys) - 1))
         print("Keys:", keys)
-        oneQuestion = self.questionDik.get(questionNumber)       
+        oneQuestion = self.questionDik.get(questionNumber)
         print(oneQuestion)
-        outputQuestion = self.questionMessage + oneQuestion.get("number01")+" "+oneQuestion.get("operator")+" "+oneQuestion.get("number02")+"?"
-        print(outputQuestion,questionNumber)
-        return{"question": outputQuestion, "questionNumber": questionNumber}
-    
-
+        outputQuestion = self.questionMessage + oneQuestion.get("number01") + " " + oneQuestion.get(
+            "operator") + " " + oneQuestion.get("number02") + "?"
+        print(outputQuestion, questionNumber)
+        return {"question": outputQuestion, "questionNumber": questionNumber}
 
     def calculate(self, number01, operator, number02):
         print(number01, operator, number02)
@@ -53,12 +51,10 @@ class Calculator(object):
 
         return "calculation error"
 
-
-
-    def checkAnswer(self,questionNumber="",answer="")->dict:
+    def checkAnswer(self, questionNumber="", answer="") -> dict:
         if questionNumber == "" or answer == "":
             return {
-            "message": "did you forget to post the questionNumber or answer"
+                "message": "did you forget to post the questionNumber or answer"
             }
         else:
             question = self.questionDik.get(str(questionNumber))
@@ -66,9 +62,9 @@ class Calculator(object):
             print(calculatedAnswer, answer)
             if str(calculatedAnswer) == str(answer):
                 return {
-                        "message": "correct"
-                        }
-            else: 
+                    "message": "correct"
+                }
+            else:
                 return {
-                        "message": "wrong answer please try again"
-                        }                       
+                    "message": "wrong answer please try again"
+                }

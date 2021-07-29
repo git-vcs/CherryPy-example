@@ -1,8 +1,8 @@
 import unittest
-from Example import Example;
+from Example import Example
+
 
 class TestExample(unittest.TestCase):
-
 
     def test_postRealay(self):
         respone = str(Example.postExample("unittest")[1])
