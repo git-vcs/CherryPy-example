@@ -1,6 +1,6 @@
 class Example(object):
 
-    def getExample(self):
+    def getExample():
         return "This is a response from the example get-API"
 
     def postExample(message=""):
