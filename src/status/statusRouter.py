@@ -1,14 +1,13 @@
 import cherrypy
-import time
+from src.status.status import Status
 
 
 @cherrypy.expose
-class helloRouter():
-    start = time.time()
+class statusRouter():
+    status = Status()
     baseAPI = ""
     endPoint = ""
     conf = ""
-    couter = 0
 
     def __init__(self, baseAPI, endPoint, conf):
         self.baseAPI = baseAPI
@@ -19,11 +18,11 @@ class helloRouter():
 
     def GET(self):
         try:
-            self.couter += 1
-            print("router: get")
-            res = "Hello World\nServer uptime: " + str(int(time.time() - self.start)) + " s.\nvisitors counter: " + str(
-                self.couter)
-            return res
+            # for debug
+            print("router: status")
+            return self.status.status()
+
+
         except (Exception) as error:
             print("Error:", error)
             return "errror"

@@ -1,6 +1,6 @@
 from src.example.ExampleRouter import exampleRouter
 from src.calculator.calculatorRouter import calculatorRouter
-from src.Hello import helloRouter
+from src.status.statusRouter import statusRouter
 import cherrypy
 import os
 
@@ -32,7 +32,7 @@ globalConf = {
 
 if __name__ == '__main__':
     cherrypy.config.update(globalConf)
-    helloRouter("/", "", conf)
+    statusRouter("/", "", conf)
     exampleRouter(baseAPI, "/example", conf)
     calculatorRouter(baseAPI, "/calculator", conf)
     cherrypy.engine.block()
