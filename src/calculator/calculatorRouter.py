@@ -23,7 +23,7 @@ class calculatorRouter():
             print("router: get")
             return {
                 "title": "This is a simple calculator backend-game, please answer the follow question by posting the answer: and questionNumber:",
-                "question": self.calcualtor.getRandomeQuestion()["question"]
+                "question": self.calcualtor.getRandomeQuestion()
             }
 
         except (Exception) as error:
