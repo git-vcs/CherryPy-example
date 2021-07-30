@@ -21,9 +21,11 @@ class calculatorRouter():
     def GET(self):
         try:
             print("router: get")
+            oneQuestion = self.calcualtor.getRandomeQuestion()
             return {
                 "title": "This is a simple calculator backend-game, please answer the follow question by posting the answer: and questionNumber:",
-                "question": self.calcualtor.getRandomeQuestion()
+                "question": oneQuestion["question"],
+                "questionNumber": oneQuestion["questionNumber"]
             }
 
         except (Exception) as error:
