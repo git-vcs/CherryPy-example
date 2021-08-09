@@ -23,6 +23,41 @@ class Calculator(object):
             "number01": "12.0",
             "number02": "2.0",
             "operator": "/"
+        },
+        "4": {
+            "number01": "6",
+            "number02": "7",
+            "operator": "+"
+        },
+        "5": {
+            "number01": "9",
+            "number02": "5",
+            "operator": "-"
+        },
+        "6": {
+            "number01": "5",
+            "number02": "5",
+            "operator": "*"
+        },
+        "7": {
+            "number01": "12",
+            "number02": "2",
+            "operator": "*"
+        },
+        "8": {
+            "number01": "11",
+            "number02": "2",
+            "operator": "-"
+        },
+        "9": {
+            "number01": "8",
+            "number02": "8",
+            "operator": "+"
+        },
+        "10": {
+            "number01": "9",
+            "number02": "2",
+            "operator": "-"
         }
     }
 
