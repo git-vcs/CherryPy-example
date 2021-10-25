@@ -9,7 +9,7 @@ class Status(object):
         try:
             self.counter += 1
             print("router: get")
-            res = "Server Status\nServer uptime: " + str(int(time.time() - self.start)) + " s.\nvisitors counter: " + str(
+            res = "Hello\nServer Status\nServer uptime: " + str(int(time.time() - self.start)) + " s.\nvisitors counter: " + str(
                 self.counter)
             return res
         except (Exception) as error:
